@@ -36,7 +36,6 @@ for i in range(3):
 
     coords.append((pos_x, pos_y))
 
-print(coords)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Radar")
 
