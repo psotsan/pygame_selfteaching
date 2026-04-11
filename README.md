@@ -11,7 +11,7 @@ Repository consisting of exercises and projects developed while learning videoga
 ```
 ┌ [/] Module 1: Fundamentals of game engine
 ├──── [X] Main loop
-├──── [ ] Basic rendering and coordinates
+├──── [/] Basic rendering and coordinates
 ├──── [ ] User input
 └──── [ ] Milestone 1: BASIC PONG
 
@@ -21,6 +21,8 @@ Repository consisting of exercises and projects developed while learning videoga
 ├──── [ ] Frame-to-frame animation
 ├──── [ ] Camera and scroll
 └──── [ ] Milestone 2: MINI PLATFORMER
+
+More modules incoming
 ```
 
 ## Requirements

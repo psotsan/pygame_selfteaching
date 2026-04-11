@@ -1,3 +1,5 @@
+# Changing window background color in response to keyboard events
+
 import pygame
 import sys
 

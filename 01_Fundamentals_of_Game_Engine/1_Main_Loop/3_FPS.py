@@ -1,3 +1,5 @@
+# Using a game clock, reading FPS and displaying them in the window
+
 import pygame
 import sys
 

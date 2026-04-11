@@ -1,3 +1,6 @@
+# Drawing a simple window with its caption, defining its dimensions,
+# background color and implementing simple game loop
+
 import pygame
 import sys
 
