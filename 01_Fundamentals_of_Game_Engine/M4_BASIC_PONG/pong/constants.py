@@ -1,0 +1,17 @@
+import pygame
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+FPS = 60
+
+PLAYER_WIDTH = 10
+PLAYER_HEIGHT = 40
+
+BALL_RADIUS = 5
+
+PLAYER_SPEED = 10
+BALL_SPEED = 40
+
+WHITE = pygame.Color(255, 255, 255)
+BLACK = pygame.Color(0, 0, 0)

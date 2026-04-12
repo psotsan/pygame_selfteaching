@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![Pygame](https://img.shields.io/badge/pygame-2.5+-green.svg)
-![License](https://img.shields.io/badge/license-MIT-purple.svg)
+![License](https://img.shields.io/badge/license-GPLv3-purple.svg)
 
 # Videogames development with Pygame. Self-teaching project
 Repository consisting of exercises and projects developed while learning videogame development in Python using Pygame library
@@ -14,7 +14,7 @@ Repository consisting of exercises and projects developed while learning videoga
 ├──── [X] Basic rendering and coordinates
 ├──── [X] User input
 ├──── [X] Command Pattern
-└──── [ ] Milestone 1: BASIC PONG
+└──── [/] Milestone 1: BASIC PONG
 
 ┌ [ ] Module 2: Sprites and animation
 ├──── [ ] Loading and managing images
