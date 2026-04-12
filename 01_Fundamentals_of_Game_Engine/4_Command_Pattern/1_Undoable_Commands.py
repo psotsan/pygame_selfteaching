@@ -17,7 +17,7 @@ def clamp(val, min_val, max_val):
 
 class Player:
     color = pygame.Color(WHITE)
-    def __init__(self, x, y):
+    def __init__(self):
         self.rect = pygame.Rect(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 30, 30)
 
     def draw(self, scr:pygame.display):
@@ -35,7 +35,6 @@ class Command(ABC):
 
 
 class MoveCommand(Command):
-    dir = 0
     def __init__(self, entity: Player, direction, velocity):
         self.entity = entity
         self.dir = direction
@@ -96,7 +95,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Undoable Commands")
 
 screen.fill(BLACK)
-player = Player(300, 300)
+player = Player()
 player_handler = InputHandler(player)
 
 running = True

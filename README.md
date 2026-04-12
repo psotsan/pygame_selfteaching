@@ -13,7 +13,7 @@ Repository consisting of exercises and projects developed while learning videoga
 ├──── [X] Main loop
 ├──── [X] Basic rendering and coordinates
 ├──── [X] User input
-├──── [/] Command Pattern
+├──── [X] Command Pattern
 └──── [ ] Milestone 1: BASIC PONG
 
 ┌ [ ] Module 2: Sprites and animation
