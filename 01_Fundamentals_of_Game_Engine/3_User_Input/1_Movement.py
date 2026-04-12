@@ -74,7 +74,7 @@ while running:
 
     screen.fill(BLACK)
     pygame.draw.rect(screen,player_color,player)
-    pos_text = FONT.render(f"x: {str(player.x)}, y: {str(player.y)}", True, RED)
+    pos_text = FONT.render(f"x: {player.x}, y: {player.y}", True, RED)
     screen.blit(pos_text, (10, 10))
     pygame.display.flip()
     clock.tick(60)
