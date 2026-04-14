@@ -1,12 +1,12 @@
-import pygame
-import sys
-import os
+import pygame, sys, random
 from constants import (
     SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_SPEED, INITIAL_BALL_SPEED,
     PLAYER_WIDTH, PLAYER_HEIGHT, BALL_RADIUS, WHITE, BLACK
 )
 from entities import Player, Ball
 from input_handler import InputHandler
+from commands import MoveCommand
+from utils import ball_initial_direction
 
 pygame.init()
 
@@ -31,6 +31,10 @@ ball = Ball(SCREEN_WIDTH//2, SCREEN_HEIGHT//2, BALL_RADIUS, WHITE)
 player1_handler = InputHandler(player_1, pygame.K_w, pygame.K_s)
 player2_handler = InputHandler(player_2, pygame.K_o, pygame.K_l)
 
+ball_x_dir, ball_y_dir = ball_initial_direction()
+ball_move_command = MoveCommand((ball_x_dir, ball_y_dir))
+ball_speed = INITIAL_BALL_SPEED
+
 running = True
 
 while running:
@@ -43,12 +47,14 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
-        screen.fill(BLACK)
-        player1_handler.handle_input(delta_time, PLAYER_SPEED)
-        player2_handler.handle_input(delta_time, PLAYER_SPEED)
-        player_1.draw(screen)
-        player_2.draw(screen)
-        pygame.display.flip()
+    screen.fill(BLACK)
+    player1_handler.handle_input(delta_time, PLAYER_SPEED)
+    player2_handler.handle_input(delta_time, PLAYER_SPEED)
+    ball_move_command.execute(ball, delta_time, ball_speed)
+    player_1.draw(screen)
+    player_2.draw(screen)
+    ball.draw(screen)
+    pygame.display.flip()
 
 pygame.quit()
 sys.exit()
