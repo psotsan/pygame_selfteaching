@@ -6,9 +6,14 @@ from constants import (
 from entities import Player, Ball
 from input_handler import InputHandler
 from commands import MoveCommand
-from utils import ball_initial_direction
+from utils import ball_initial_direction, score
 
 pygame.init()
+
+scores = {
+    1: 0,
+    2: 0,
+}
 
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -27,7 +32,9 @@ player_2 = Player(
     PLAYER_WIDTH,
     PLAYER_HEIGHT,
     WHITE)
-ball = Ball(SCREEN_WIDTH//2, SCREEN_HEIGHT//2, BALL_RADIUS, WHITE)
+
+ball = Ball(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2, BALL_RADIUS, WHITE)
+
 player1_handler = InputHandler(player_1, pygame.K_w, pygame.K_s)
 player2_handler = InputHandler(player_2, pygame.K_o, pygame.K_l)
 
@@ -47,9 +54,25 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
-    ball_col = ball.collide("test", "test")
+    ball_col = ball.collide((player_1.x, player_1.y), (player_2.x, player_2.y))
     if ball_col == "y":
         ball_move_command.direction[1] = -1 * ball_move_command.direction[1]
+    if ball_col == ("left_paddle") or ball_col == ("right_paddle"):
+        ball_move_command.direction[0] = -1 * ball_move_command.direction[0]
+    if ball_col == "x_left":
+        score(scores, 2)
+        ball_x_dir, ball_y_dir = ball_initial_direction()
+        ball_speed = INITIAL_BALL_SPEED
+        ball.set_x(SCREEN_WIDTH // 2 - PLAYER_WIDTH // 2)
+        ball.set_y(SCREEN_HEIGHT // 2 - PLAYER_HEIGHT // 2)
+        ball_move_command = MoveCommand([ball_x_dir, ball_y_dir])
+    if ball_col == "x_right":
+        score(scores, 1)
+        ball_x_dir, ball_y_dir = ball_initial_direction()
+        ball_speed = INITIAL_BALL_SPEED
+        ball.set_x(SCREEN_WIDTH // 2 - PLAYER_WIDTH // 2)
+        ball.set_y(SCREEN_HEIGHT // 2 - PLAYER_HEIGHT // 2)
+        ball_move_command = MoveCommand([ball_x_dir, ball_y_dir])
 
     screen.fill(BLACK)
     player1_handler.handle_input(delta_time, PLAYER_SPEED)
