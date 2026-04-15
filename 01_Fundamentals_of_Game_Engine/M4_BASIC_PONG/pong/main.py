@@ -16,13 +16,13 @@ pygame.display.set_caption("Simple Pong")
 screen.fill(BLACK)
 
 player_1 = Player(
-    10,
+    3 * BALL_RADIUS,
     SCREEN_HEIGHT // 2 - PLAYER_HEIGHT // 2,
     PLAYER_WIDTH,
     PLAYER_HEIGHT,
     WHITE)
 player_2 = Player(
-    SCREEN_WIDTH - PLAYER_WIDTH - 10,
+    SCREEN_WIDTH - PLAYER_WIDTH - 3 * BALL_RADIUS,
     SCREEN_HEIGHT // 2 - PLAYER_HEIGHT // 2,
     PLAYER_WIDTH,
     PLAYER_HEIGHT,
