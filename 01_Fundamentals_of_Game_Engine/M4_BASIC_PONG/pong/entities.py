@@ -36,6 +36,9 @@ class Ball:
             self.radius
         )
 
+    def collide(self):
+        pass
+
     def set_x(self, x: int):
         self.x = x
 
