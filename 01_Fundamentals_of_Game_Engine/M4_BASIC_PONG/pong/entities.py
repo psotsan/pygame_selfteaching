@@ -1,4 +1,5 @@
 import pygame, random
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Player:
     def __init__(self, x:int, y:int, width:int, height:int, color:pygame.Color):
@@ -25,7 +26,7 @@ class Ball:
         self.y = y
         self.radius = radius
         self.color = color
-        self.direction = random.randrange(0, 360)
+        #self.direction = random.randrange(0, 360)
 
 
     def draw(self, scr:pygame.display):
@@ -36,8 +37,11 @@ class Ball:
             self.radius
         )
 
-    def collide(self):
-        pass
+    def collide(self, p1_pos, p2_pos) -> str:
+        if self.y >= (SCREEN_HEIGHT - self.radius) or self.y <= self.radius:
+            return "y"
+
+        return "none"
 
     def set_x(self, x: int):
         self.x = x

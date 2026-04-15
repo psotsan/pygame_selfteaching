@@ -32,7 +32,7 @@ player1_handler = InputHandler(player_1, pygame.K_w, pygame.K_s)
 player2_handler = InputHandler(player_2, pygame.K_o, pygame.K_l)
 
 ball_x_dir, ball_y_dir = ball_initial_direction()
-ball_move_command = MoveCommand((ball_x_dir, ball_y_dir))
+ball_move_command = MoveCommand([ball_x_dir, ball_y_dir])
 ball_speed = INITIAL_BALL_SPEED
 
 running = True
@@ -47,10 +47,14 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
+    ball_col = ball.collide("test", "test")
+    if ball_col == "y":
+        ball_move_command.direction[1] = -1 * ball_move_command.direction[1]
+
     screen.fill(BLACK)
     player1_handler.handle_input(delta_time, PLAYER_SPEED)
     player2_handler.handle_input(delta_time, PLAYER_SPEED)
-    ball_move_command.execute(ball, delta_time, ball_speed)
+    ball_move_command.execute(ball, delta_time, ball_speed, SCREEN_HEIGHT)
     player_1.draw(screen)
     player_2.draw(screen)
     ball.draw(screen)

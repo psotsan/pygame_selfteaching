@@ -11,11 +11,11 @@ class Command(ABC):
 
 
 class MoveCommand(Command):
-    def __init__(self, direction:tuple[float, float]):
+    def __init__(self, direction:list):
         self.direction = direction
         print(self.direction)
 
-    def execute(self, entity, delta_time:float, speed:float):
+    def execute(self, entity, delta_time:float, speed:float, bottom_limit=SCREEN_HEIGHT - 5):
         new_pos = [
             clamp(
                 entity.x + self.direction[0] * delta_time * speed,
@@ -25,7 +25,7 @@ class MoveCommand(Command):
             clamp(
                 entity.y + self.direction[1] * delta_time * speed,
                 5,
-                SCREEN_HEIGHT - PLAYER_HEIGHT - 5
+                bottom_limit
             )
         ]
         entity.set_x(new_pos[0])

@@ -1,5 +1,6 @@
 from entities import Player
 from commands import MoveCommand
+from constants import SCREEN_HEIGHT
 import pygame
 
 
