@@ -9,7 +9,7 @@ Repository consisting of exercises and projects developed while learning videoga
 > [ ] = Pending | [X] = Completed | [/] = In progress
 
 ```
-┌ [/] Module 1: Fundamentals of game engine
+┌ [X] Module 1: Fundamentals of game engine
 ├──── [X] Main loop
 ├──── [X] Basic rendering and coordinates
 ├──── [X] User input
