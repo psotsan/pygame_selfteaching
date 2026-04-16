@@ -57,8 +57,11 @@ while running:
     ball_col = ball.collide((player_1.x, player_1.y), (player_2.x, player_2.y))
     if ball_col == "y":
         ball_move_command.direction[1] = -1 * ball_move_command.direction[1]
+        ball_speed += INITIAL_BALL_SPEED * 0.02
     if ball_col == ("left_paddle") or ball_col == ("right_paddle"):
         ball_move_command.direction[0] = -1 * ball_move_command.direction[0]
+        ball_speed += INITIAL_BALL_SPEED * 0.02
+        ball.set_x(ball.x + BALL_RADIUS if ball_col == "left_paddle" else ball.x - BALL_RADIUS)
     if ball_col == "x_left":
         score(scores, 2)
         ball_x_dir, ball_y_dir = ball_initial_direction()
@@ -73,7 +76,7 @@ while running:
         ball.set_x(SCREEN_WIDTH // 2 - PLAYER_WIDTH // 2)
         ball.set_y(SCREEN_HEIGHT // 2 - PLAYER_HEIGHT // 2)
         ball_move_command = MoveCommand([ball_x_dir, ball_y_dir])
-
+    print(ball_speed)
     screen.fill(BLACK)
     player1_handler.handle_input(delta_time, PLAYER_SPEED)
     player2_handler.handle_input(delta_time, PLAYER_SPEED)

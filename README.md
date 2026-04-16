@@ -14,7 +14,7 @@ Repository consisting of exercises and projects developed while learning videoga
 ├──── [X] Basic rendering and coordinates
 ├──── [X] User input
 ├──── [X] Command Pattern
-└──── [/] Milestone 1: BASIC PONG
+└──── [X] Milestone 1: BASIC PONG
 
 ┌ [ ] Module 2: Sprites and animation
 ├──── [ ] Loading and managing images
@@ -22,6 +22,14 @@ Repository consisting of exercises and projects developed while learning videoga
 ├──── [ ] Frame-to-frame animation
 ├──── [ ] Camera and scroll
 └──── [ ] Milestone 2: MINI PLATFORMER
+
+┌ [ ] Module 3: Physics and collisions
+├──── [ ] Movement with Delta Time
+├──── [ ] Axis-Aligned Bounding Box Collisions
+├──── [ ] Collision resolution
+├──── [ ] Gravity and jumping
+├──── [ ] Collisions with polygons and ovals
+└──── [ ] Milestone 3: 2D Action game
 
 More modules incoming
 ```

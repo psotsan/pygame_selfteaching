@@ -55,7 +55,6 @@ class Ball:
         if self.x <= self.radius:
             return "x_left"
         if self.x >= SCREEN_WIDTH - 2 * self.radius:
-            print("derecha")
             return "x_right"
 
         return "none"

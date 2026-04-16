@@ -13,18 +13,16 @@ class Command(ABC):
 class MoveCommand(Command):
     def __init__(self, direction:list):
         self.direction = direction
-        print(self.direction)
 
     def execute(self, entity, delta_time:float, speed:float, bottom_limit=SCREEN_HEIGHT - PLAYER_HEIGHT - 5):
-        print(f"Ball direction = {self.direction}")
         new_pos = [
             clamp(
-                entity.x + self.direction[0] * delta_time * entity.speed,
+                entity.x + self.direction[0] * delta_time * speed,
                 5,
                 SCREEN_WIDTH - PLAYER_WIDTH - 5
             ),
             clamp(
-                entity.y + self.direction[1] * delta_time * entity.speed,
+                entity.y + self.direction[1] * delta_time * speed,
                 5,
                 bottom_limit
             )
